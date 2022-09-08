@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { PainterContext } from "../contexts/PainterContext";
 
 export default function ColorPicker(props) {
@@ -21,10 +21,15 @@ export default function ColorPicker(props) {
         //if this color is not selected, show this
         //borderColor: "black",
         //borderWidth: "2px",
+
+        //assign borderColor object to the selected color, check if the selColor is equal to the color we get from ColorPickerContainer
+        borderColor: selColor === color ? "magenta" : "black",
+        borderWidth: selColor === color ? "7px" : "2px",
       }}
       onClick={() => {
         //set selecting color when clicked
         //your code here
+        setSelColor(color);
       }}
     />
   );
